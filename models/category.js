@@ -2,10 +2,10 @@ var mongoose = require('mongoose');
 
 var Schema = mongoose.Schema;
 
-var CategorySchema = {
+var CategorySchema = new Schema({
     name: {type: String, required: true, maxLength: 50},
     description: {type: String, maxLength: 100}
-}
+});
 
 CategorySchema
 .virtual('url')
