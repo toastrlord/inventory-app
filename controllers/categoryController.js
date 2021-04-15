@@ -10,21 +10,21 @@ exports.category_list = function(req, res, next) {
 }
 
 exports.category_detail = function(req, res, next) {
-    res.render('NOT IMPLEMENTED: CATEGORY_DETAIL');
+    res.send('NOT IMPLEMENTED: CATEGORY_DETAIL');
 }
 
 exports.category_create_get = function(req, res, next) {
-    res.render('NOT IMPLEMENTED: CATEGORY_CREATE_GET');
+    res.send('NOT IMPLEMENTED: CATEGORY_CREATE_GET');
 }
 
 exports.category_create_post = function(req, res, next) {
-    res.render('NOT IMPLEMENTED: CATEGORY_CREATE_POST');
+    res.send('NOT IMPLEMENTED: CATEGORY_CREATE_POST');
 }
 
 exports.category_delete_get = function(req, res, next) {
-    res.render('NOT IMPLEMENTED: CATEGORY_DELETE_GET');
+    res.send('NOT IMPLEMENTED: CATEGORY_DELETE_GET');
 }
 
 exports.category_delete_post = function(req, res, next) {
-    res.render('NOT IMPLEMENTED: CATEGORY_DELETE_POST');
+    res.send('NOT IMPLEMENTED: CATEGORY_DELETE_POST');
 }
