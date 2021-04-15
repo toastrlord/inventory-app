@@ -1,0 +1,19 @@
+extends ../layout 
+
+block content 
+    h1=title 
+    form(method='POST' action='')
+        div
+            label(for='name') Name
+            input(type='text' name='name')
+        // need to actually list categories here!
+        div
+            label(for='category') Category 
+            input(type='text' name='category')
+        div
+            label(for='price') Price 
+            input(type='text' name='price')
+        div
+            label(for='quantity') Quantity
+            input(type='number' name='quantity' min='0' step='1')
+        button.btn.btn-primary(type='submit') Submit

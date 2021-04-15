@@ -1,0 +1,12 @@
+extends ../layout
+
+block content 
+    h1=title
+    a(href='/category/create') Create new category
+    ol
+    if category_list
+        each category in category_list
+            li 
+                a(href=category.url) #{category.name}
+    else 
+        p There are no items associated with this category

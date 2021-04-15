@@ -1,0 +1,15 @@
+extends ../layout 
+
+block content 
+    h1=title
+    a(href=category.url) Return to #{category.name}
+    if items.length
+        p These items must be deleted before this category can be deleted
+        ol
+        each item in items
+            li 
+                a(href=item.url) #{item.name}
+    else 
+        p Are you sure you want to delete #{category.name}? This cannot be undone
+        form(method='POST' action='')
+            button.btn.btn-primary(type='submit') Delete

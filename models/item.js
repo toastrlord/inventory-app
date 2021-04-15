@@ -5,7 +5,7 @@ var Schema = mongoose.Schema;
 var ItemSchema = new Schema(
     {
         name: {type: String, required: true, maxLength: 50},
-        category: {type: Schema.Types.ObjectId, required: true},
+        category: {type: Schema.Types.ObjectId, ref: 'Category', required: true},
         price: {type: Number, required: true},
         number_in_stock: {type: Number, required: true}
     }
@@ -14,7 +14,7 @@ var ItemSchema = new Schema(
 ItemSchema
 .virtual('url')
 .get(function() {
-    return '/items/' + this._id;
+    return '/item/' + this._id;
 });
 
 module.exports = mongoose.model('Item', ItemSchema);
