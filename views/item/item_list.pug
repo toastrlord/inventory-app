@@ -1,0 +1,8 @@
+extends ../layout
+block content 
+    for item in items 
+        div 
+            a(href=item.url) #{item.name} 
+            a(href=item.category.url) Category: #{item.category.name}
+            p=item.price 
+            p Quantity: #{item.number_in_stock}

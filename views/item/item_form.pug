@@ -2,18 +2,29 @@ extends ../layout
 
 block content 
     h1=title 
-    form(method='POST' action='')
-        div
-            label(for='name') Name
-            input(type='text' name='name')
-        // need to actually list categories here!
-        div
-            label(for='category') Category 
-            input(type='text' name='category')
-        div
-            label(for='price') Price 
-            input(type='text' name='price')
-        div
-            label(for='quantity') Quantity
-            input(type='number' name='quantity' min='0' step='1')
-        button.btn.btn-primary(type='submit') Submit
+    if categories
+        form(method='POST' action='')
+            div
+                label(for='name') Name
+                input(type='text' name='name' value=(item == undefined ? '' : item.name))
+            div
+                label(for='category') Category: 
+                select(type='select' name='category' value=(item == undefined ? '' : item.category.name))
+                    for category in categories
+                        option(value=(category._id) selected=(category._id.toString() == item.category._id.toString())) #{category.name}
+            div
+                label(for='price') Price 
+                input(type='text' name='price' value=(item == undefined ? '' : item.price))
+            div
+                label(for='number_in_stock') Quantity
+                input(type='number' name='number_in_stock' min='0' step='1' value=(item == undefined ? '' : item.number_in_stock))
+            button.btn.btn-primary(type='submit') Submit
+
+        if errors
+            ul
+            for error in errors
+                li!= error.msg
+    else 
+        p No categories found. Please create a category first.
+        a(href='/category/create') Create a new category
+    
