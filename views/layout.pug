@@ -1,8 +1,11 @@
 doctype html
 html
   head
-    title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
+      title= title
+      link(rel='stylesheet', href='/stylesheets/style.css')
+  div(class='category-header')
+    for category in categories 
+      a(href=category.url class='category-header-element') #{category.name}
   body
     a(href='/') Return to homepage
     block content

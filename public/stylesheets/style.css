@@ -1,8 +1,29 @@
+@import "reset.css";
+
 body {
-  padding: 50px;
+  color: black;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
-  color: #00B7FF;
+  text-decoration: none;
+}
+
+.category-header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-bottom: solid 1px black;
+}
+
+.category-header-element {
+  transition: all 250ms;
+  background-color: rgb(190, 190, 190);
+  padding: 12px;
+  flex: 1;
+  text-align: center;
+}
+
+.category-header-element:hover {
+  background-color: white;
 }

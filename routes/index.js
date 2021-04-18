@@ -2,10 +2,23 @@ var express = require('express');
 var router = express.Router();
 var categoryController = require('../controllers/categoryController');
 var itemController = require('../controllers/itemController');
+const async = require('async');
+const Item = require('../models/item');
+const Category = require('../models/category');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Homepage' });
+  async.parallel({
+      items: function(callback) {
+        Item.find({}).sort([['name', 'ascending']]).exec(callback);
+      },
+      categories: function(callback) {
+        Category.find({}).sort([['name', 'ascending']]).exec(callback);
+      }
+    }, function(err, results) {
+    if (err) { return next(err); }
+    res.render('index', { title: 'Homepage', categories: results.categories, items: results.items});
+  });
 });
 
 
