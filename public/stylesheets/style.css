@@ -9,6 +9,10 @@ a {
   text-decoration: none;
 }
 
+a:visited {
+  color: black;
+}
+
 .category-header {
   display: flex;
   justify-content: space-around;

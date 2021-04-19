@@ -90,6 +90,7 @@ exports.item_update_post = [
             price: req.body.price,
             category: req.body.category,
             number_in_stock: req.body.number_in_stock,
+            image_filename: req.file ? req.file.filename : '',
             _id: req.params.id
         });
         if (!errors.isEmpty()) {
